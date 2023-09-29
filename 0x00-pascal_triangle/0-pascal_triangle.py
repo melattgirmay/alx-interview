@@ -21,3 +21,4 @@ def pascal_triangle(n):
                 lists[i].append(lists[i - 1][j - 1] + lists[i - 1][j])
             lists[i].append(1)
     return lists
+    
