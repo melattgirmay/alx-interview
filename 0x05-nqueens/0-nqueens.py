@@ -1,11 +1,9 @@
 #!/usr/bin/python3
 import sys
 
-def print_board(board):
-    for row in board:
-        print([row.index(1), row.index(1)], end="")
-        if row != board[-1]:
-            print(", ", end="")
+def print_board(solution):
+    for row in solution:
+        print(row, end=", ")
     print()
 
 def is_safe(board, row, col, N):
@@ -36,7 +34,7 @@ def solve_nqueens(N):
     
     def backtrack(row):
         if row == N:
-            solutions.append([[i, j] for i, row in enumerate(board) for j, cell in enumerate(row) if cell == 1])
+            solutions.append([[i, row.index(1)] for i, row in enumerate(board) if 1 in row])
             return
         
         for col in range(N):
@@ -49,7 +47,6 @@ def solve_nqueens(N):
     
     for solution in solutions:
         print_board(solution)
-        print()
     
 if __name__ == "__main__":
     if len(sys.argv) != 2:
