@@ -3,7 +3,10 @@ import sys
 
 def print_board(board):
     for row in board:
-        print(row)
+        print([row.index(1), row.index(1)], end="")
+        if row != board[-1]:
+            print(", ", end="")
+    print()
 
 def is_safe(board, row, col, N):
     # Check if there's a queen in the same column
